@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<title>LAB 4</title>
+		<style>
+		input
+		{
+			width:200px;
+			height:100px;
+			text-align:center;
+			font-size:35px;
+		}
+		</style>
+		<script>
+			function dopisz(tekst)
+			{
+				document.getElementById('wyswietlacz').value+=tekst;
+			}
+			function wyczysc()
+			{
+				document.getElementById('wyswietlacz').value = "";
+			}
+			function policz()
+			{
+				document.getElementById('wyswietlacz').value = eval(document.getElementById('wyswietlacz').value);
+			}
+		</script>
+	</head>
+	<body>
+		<table align="center">
+			<tr>
+				<td><input type ="text" id="wyswietlacz"></div></td>
+				<td><input type="button" value="=" onclick="policz()"></td>
+				<td><input type="button" value="C" onclick="wyczysc()"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="button" value="1" onclick="dopisz('1')"></td>
+				<td><input type="button" value="2" onclick="dopisz('2')"></td>
+				<td><input type="button" value="3" onclick="dopisz('3')"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="button" value="4" onclick="dopisz('4')"></td>
+				<td><input type="button" value="5" onclick="dopisz('5')"></td>
+				<td><input type="button" value="6" onclick="dopisz('6')"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="button" value="7" onclick="dopisz('7')"></td>
+				<td><input type="button" value="8" onclick="dopisz('8')"></td>
+				<td><input type="button" value="9" onclick="dopisz('9')"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="button" value="0" onclick="dopisz('0')"></td>
+				<td><input type="button" value="+" onclick="dopisz('+')"></td>
+				<td><input type="button" value="*" onclick="dopisz('*')"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="button" value="." onclick="dopisz('.')"></td>
+				<td><input type="button" value="-" onclick="dopisz('-')"></td>
+				<td><input type="button" value="/" onclick="dopisz('/')"></td>
+			</tr>
+		</table>
+	</body>
+</html>
