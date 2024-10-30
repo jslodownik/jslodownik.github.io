@@ -15,7 +15,19 @@
 		<script>
 			function dopisz(tekst)
 			{
-				document.getElementById('wyswietlacz').value+=tekst;
+				var aktualny=document.getElementById('wyswietlacz').value;
+				var ostatni = aktualny.charAt(aktualny.length-1)
+				if(tekst == '+' ||tekst ==  '-' ||tekst ==  '*' ||tekst ==  '/' ||tekst ==  '.')
+				{
+					if(ostatni!='+' && ostatni!='-' && ostatni!='*' && ostatni!='/' && ostatni!='.'&& ostatni!='')
+					{
+						document.getElementById('wyswietlacz').value+=tekst;
+					}
+				}
+				else
+				{
+					document.getElementById('wyswietlacz').value+=tekst;
+				}
 			}
 			function wyczysc()
 			{
