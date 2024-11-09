@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<title>LAB 5</title>
+		<style>
+			.dwieKolumny
+			{
+				display:grid;
+				grid-template-columns: 50% 50%;
+				width:30%;
+				font-family:arial;
+				color: green;
+				font-size: 35px;	
+			}
+			.jednaKolumna
+			{
+				width:50%;
+				font-family:arial;
+				color: red;
+				font-size: 35px;	
+			}
+		</style>
+		<script>
+			function checkImie()
+			{
+				var imie = document.getElementById("imie").value;
+				var wyrazenie = /^[A-Za-zĄĆĘŁŃÓŚŻŹąćęłńóśżź]{2,30}$/;
+				if(wyrazenie.test(imie))
+				{
+					document.getElementById("imie").style.backgroundColor = "lightgreen";
+					document.getElementById("blad").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("imie").style.backgroundColor = "red";
+					//alert("IMIE - tylko litery dlugosc 2-30");
+					document.getElementById("blad").innerHTML= "IMIE - tylko litery dlugosc 2-30";
+				}
+			}
+			function checkNazwisko()
+			{
+				var nazwisko = document.getElementById("nazwisko").value;
+				var wyrazenie = /^[A-Za-zĄĆĘŁŃÓŚŻŹąćęłńóśżź]{2,30}(-[A-Za-zĄĆĘŁŃÓŚŻŹąćęłńóśżź]{2,30})?$/;
+				if(wyrazenie.test(nazwisko))
+				{
+					document.getElementById("nazwisko").style.backgroundColor = "lightgreen";
+					document.getElementById("blad").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("nazwisko").style.backgroundColor = "red";
+					//alert("NAZWISKO - tylko litery i myslnik dlugosc nazwisk 2-30");
+					document.getElementById("blad").innerHTML= "NAZWISKO - tylko litery i myslnik dlugosc nazwisk 2-30";
+				}
+			}
+			function checkUlica()
+			{
+				var ulica = document.getElementById("ulica").value;
+				var wyrazenie = /^[A-Za-zĄĆĘŁŃÓŚŻŹąćęłńóśżź]{2,30}([- ][A-Za-zĄĆĘŁŃÓŚŻŹąćęłńóśżź]{2,30})?$/;
+				if(wyrazenie.test(ulica))
+				{
+					document.getElementById("ulica").style.backgroundColor = "lightgreen";
+					document.getElementById("blad").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("ulica").style.backgroundColor = "red";
+					//alert("ULICA - tylko litery myslnik i spacja dlugosc nazw ulic 2-30");
+					document.getElementById("blad").innerHTML="ULICA - tylko litery myslnik i spacja dlugosc nazw ulic 2-30";
+				}
+			}
+			function checkNumerDomu()
+			{
+				var numerDomu = document.getElementById("numerDomu").value;
+				var wyrazenie = /^\d{1,3}([a-zA-z]{0,2})?$/;
+				if(wyrazenie.test(numerDomu))
+				{
+					document.getElementById("numerDomu").style.backgroundColor = "lightgreen";
+					document.getElementById("blad").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("numerDomu").style.backgroundColor = "red";
+					//alert("NUMER DOMU - maksymalnie 3 cyfrowy + 2 litery");
+					document.getElementById("blad").innerHTML= "NUMER DOMU - maksymalnie 3 cyfrowy + 2 litery";
+				}
+			}
+			function checkNumerMieszkania()
+			{
+				var numerMieszkania = document.getElementById("numerMieszkania").value;
+				var wyrazenie = /^\d{1,3}$/;
+				if(wyrazenie.test(numerMieszkania))
+				{
+					document.getElementById("numerMieszkania").style.backgroundColor = "lightgreen";
+					document.getElementById("blad").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("numerMieszkania").style.backgroundColor = "red";
+					//alert("NUMER DOMU - maksymalnie 3 cyfrowy + 2 litery");
+					document.getElementById("blad").innerHTML= "NUMER MIESZKANIA - maksymalnie 3 cyfrowy";
+				}
+			}
+			function checkNumerTelefonu()
+			{
+				var numerTelefonu = document.getElementById("numerTelefonu").value;
+				var wyrazenie = /^\d{3}(-| )?\d{3}(-| )?\d{3}$/
+				if(wyrazenie.test(numerTelefonu))
+				{
+					document.getElementById("numerTelefonu").style.backgroundColor = "lightgreen";
+					document.getElementById("blad").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("numerTelefonu").style.backgroundColor = "red";
+					//alert("NUMER DOMU - maksymalnie 3 cyfrowy + 2 litery");
+					document.getElementById("blad").innerHTML= "NUMER TELEFONU - xxx-xxx-xxx lub xxxxxxxxx lub xxx xxx xxx";
+				}
+			}
+			function checkHaslo()
+			{
+				var haslo = document.getElementById("haslo").value;
+				var wyrazenie = /^.{5,50}$/
+				if(wyrazenie.test(haslo))
+				{
+					document.getElementById("haslo").style.backgroundColor = "lightgreen";
+					document.getElementById("blad").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("haslo").style.backgroundColor = "red";
+					//alert("NUMER DOMU - maksymalnie 3 cyfrowy + 2 litery");
+					document.getElementById("blad").innerHTML= "HASLO - 5 - 50 znakow";
+				}
+			}
+			function checkPlec()
+			{
+				var plec = document.getElementById("plec").value;
+				var wyrazenie = /^(male|female|other)$/
+				if(wyrazenie.test(plec))
+				{
+					document.getElementById("plec").style.backgroundColor = "lightgreen";
+					document.getElementById("blad").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("plec").style.backgroundColor = "red";
+					//alert("NUMER DOMU - maksymalnie 3 cyfrowy + 2 litery");
+					document.getElementById("blad").innerHTML= "PLEC - male,female,other";
+				}
+			}
+			function checkMiasto()
+			{
+				var miasto = document.getElementById("miasto").value;
+				var wyrazenie = /^[A-Za-zĄĆĘŁŃÓŚŻŹąćęłńóśżź]{2,30}([- ][A-Za-zĄĆĘŁŃÓŚŻŹąćęłńóśżź]{2,30})?$/;
+				if(wyrazenie.test(miasto))
+				{
+					document.getElementById("miasto").style.backgroundColor = "lightgreen";
+					document.getElementById("blad").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("miasto").style.backgroundColor = "red";
+					//alert("ULICA - tylko litery myslnik i spacja dlugosc nazw ulic 2-30");
+					document.getElementById("blad").innerHTML="MIASTO - tylko litery myslnik i spacja dlugosc 2-30";
+				}
+			}
+			function checkPanstwo()
+			{
+				var panstwo = document.getElementById("panstwo").value;
+				var wyrazenie = /^[A-Za-zĄĆĘŁŃÓŚŻŹąćęłńóśżź]{2,30}([- ][A-Za-zĄĆĘŁŃÓŚŻŹąćęłńóśżź]{2,30})?$/;
+				if(wyrazenie.test(panstwo))
+				{
+					document.getElementById("panstwo").style.backgroundColor = "lightgreen";
+					document.getElementById("blad").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("panstwo").style.backgroundColor = "red";
+					//alert("ULICA - tylko litery myslnik i spacja dlugosc nazw ulic 2-30");
+					document.getElementById("blad").innerHTML="PANSTWO - tylko litery myslnik i spacja dlugosc 2-30";
+				}
+			}
+		</script>
+	</head>
+	
+	<body>
+		<form action="formularz" method="GET">
+				<div class="dwieKolumny">
+					<div>Imię</div>
+					<div><input type="text" name="imie" id="imie" onblur="checkImie()" required></div>
+					<div>Nazwisko</div>
+					<div><input type="text" name="nazwisko" id="nazwisko" onblur="checkNazwisko()" required></div>
+					<div>Ulica</div>
+					<div><input type="text" name="ulica" id="ulica" onblur="checkUlica()" required></div>
+					<div>Numer domu</div>
+					<div><input type="text" name="numerDomu" id="numerDomu" onblur="checkNumerDomu()" required></div>
+					<div>Numer mieszkania</div>
+					<div><input type="number" name="numerMieszkania" id="numerMieszkania" onblur="checkNumerMieszkania()"></div>
+					<div>Numer telefonu</div>
+					<div><input type="tel" name="numerTelefonu" id="numerTelefonu" onblur="checkNumerTelefonu()" required></div>
+					<div>Data urodzenia</div>
+					<div><input type="date" name="dataUrodzenia" id="dataUrodzenia" onblur="checkDataUrodzenia()" required></div>
+					<div>Prawo jazdy</div>
+					<div><input type="checkbox" name="prawoJazdy" id="prawoJazdy"></div>
+					<div>Hasło</div>
+					<div><input type="password" name="haslo" id="haslo" onblur="checkHaslo()" required></div>
+					<div>Płeć</div>
+					<div><input type="text" name="plec" id="plec" onblur="checkPlec()" required></div>
+					<div>Miasto</div>
+					<div><input type="text" name="miasto" id="miasto" onblur="checkMiasto()" required></div>
+					<div>Państwo</div>
+					<div><input type="text" name="panstwo" id="panstwo" onblur="checkPanstwo()" required></div>
+					<div>Zatwierdz</div>
+					<div><button type="submit">Zatwierdz</div>
+				</div>
+				<div class="jednaKolumna" id="blad">
+				</div>
+		</form>
+	</body>
+</html>
