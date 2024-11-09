@@ -9,7 +9,7 @@
 			{
 				display:grid;
 				grid-template-columns: 50% 50%;
-				width:30%;
+				width:40%;
 				font-family:arial;
 				color: green;
 				font-size: 35px;	
@@ -231,21 +231,77 @@
 		}
 			document.getElementById('formularz').addEventListener('submit', function(event)
 			{
-				if (
-				!checkImie() ||
-				!checkNazwisko() ||
-				!checkUlica() ||
-				!checkNumerDomu() ||
-				!checkNumerMieszkania() ||
-				!checkNumerTelefonu() ||
-				!checkHaslo() ||
-				!checkPlec() ||
-				!checkMiasto() ||
-				!checkPanstwo()
-				)
+				if(checkImie())
+				{
+					if(checkNazwisko())
+					{
+						if(checkUlica())
+						{
+							if(checkNumerDomu())
+							{
+								if(checkNumerTelefonu())
+								{
+									if(checkHaslo())
+									{
+										if(checkPlec())
+										{
+											if(checkMiasto())
+											{
+												if(checkPanstwo())
+												{												
+												}
+												else
+												{
+													event.preventDefault();
+													document.getElementById("blad").innerHTML="PANSTWO - tylko litery myslnik i spacja dlugosc 2-30";
+												}
+											}
+											else
+											{
+												event.preventDefault();
+												document.getElementById("blad").innerHTML="MIASTO - tylko litery myslnik i spacja dlugosc 2-30";
+											}
+										}
+										else
+										{
+											event.preventDefault();
+											document.getElementById("blad").innerHTML="PLEC - male,female,other";
+										}
+									}
+									else
+									{
+										event.preventDefault();
+										document.getElementById("blad").innerHTML="HASLO - 5 - 50 znakow";
+									}
+								}
+								else
+								{
+									event.preventDefault();
+									document.getElementById("blad").innerHTML="NUMER TELEFONU - xxx-xxx-xxx lub xxxxxxxxx lub xxx xxx xxx";
+								}
+							}
+							else
+							{
+								event.preventDefault();
+								document.getElementById("blad").innerHTML="NUMER DOMU - maksymalnie 3 cyfrowy + 2 litery";
+							}
+						}
+						else
+						{
+							event.preventDefault();
+							document.getElementById("blad").innerHTML="ULICA - tylko litery myslnik i spacja dlugosc nazw ulic 2-30";
+						}
+					}
+					else
+					{
+						event.preventDefault();
+						document.getElementById("blad").innerHTML="NAZWISKO - tylko litery i myslnik dlugosc nazwisk 2-30";
+					}
+					}
+				else
 				{
 					event.preventDefault();
-					document.getElementById("blad").innerHTML="FORMULARZ jest niepoprawnie wypelniony";
+					document.getElementById("blad").innerHTML="IMIE - tylko litery dlugosc 2-30";
 				}
 			});
 	</script>
