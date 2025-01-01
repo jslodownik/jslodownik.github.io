@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<title>TITLE</title>
+		<style>
+        body
+        {
+            background-color:darksalmon;
+            font-size: 30;
+        }
+        div
+        {
+            font-size: 30px;
+        }
+		input
+		{
+			font-size:30px;
+            font-size: 30px;
+            background-color:red;
+            border:3px solid;
+            border-color:black;
+            border-radius: 10px;
+            width: 300px;
+            height: 70px;
+            text-align: center;
+            align-content: center;
+            color: white;
+		}
+		</style>
+	</head>
+	<body align="center">
+        <div>Strzelasz w sylwestra?</div>
+		<input type="button" value="NIEEE!!!" id="guzik" onmouseover="rusz()" onclick="mikus()">
+	</body>
+	<script>
+        function rusz()
+        {
+            var percent = Math.floor(Math.random() * 5)
+            if(percent!=3)
+            {
+            var guzik = document.getElementById('guzik');
+            var width = window.innerWidth-guzik.offsetWidth;
+            var height = window.innerHeight-guzik.offsetHeight;
+            var positionX=Math.floor(Math.random() * width);
+            var positionY=Math.floor(Math.random() * height);
+            guzik.style.position="absolute";
+            guzik.style.left = positionX+'px';
+            guzik.style.top = positionY+'px';
+            }
+        }
+        function mikus()
+        {
+            open("mikus.png","_self");
+        }
+	</script>
+</html>
