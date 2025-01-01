@@ -31,7 +31,7 @@
 	</head>
 	<body align="center">
         <div>Strzelasz w sylwestra?</div>
-		<input type="button" value="NIEEE!!!" id="guzik" onmouseover="rusz()" onclick="mikus()">
+		<input type="button" value="NIEEE!!!" id="guzik" onclick="rusz()">
 	</body>
 	<script>
         function rusz()
@@ -48,10 +48,10 @@
             guzik.style.left = positionX+'px';
             guzik.style.top = positionY+'px';
             }
-        }
-        function mikus()
-        {
-            open("mikus.png","_self");
+			else
+			{
+				open("mikus.png","_self");
+			}
         }
 	</script>
 </html>
